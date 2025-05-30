@@ -2,6 +2,8 @@ package com.tecdesoftware.market.persistance.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "compras")
 public class Compra {
@@ -15,7 +17,7 @@ public class Compra {
     @Column(name = "id_cliente")
     private Integer idCliente;
 
-    private String fecha;
+    private LocalDateTime fecha;
 
     @Column(name = "medio_pago")
     private String medioPago;
@@ -24,36 +26,12 @@ public class Compra {
 
     private Boolean estado;
 
-    public Integer getIdCompra() {
-        return idCompra;
+    public Boolean getEstado() {
+        return estado;
     }
 
-    public void setIdCompra(Integer idCompra) {
-        this.idCompra = idCompra;
-    }
-
-    public Integer getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getMedioPago() {
-        return medioPago;
-    }
-
-    public void setMedioPago(String medioPago) {
-        this.medioPago = medioPago;
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 
     public String getComentario() {
@@ -64,12 +42,36 @@ public class Compra {
         this.comentario = comentario;
     }
 
-    public Boolean getEstado() {
-        return estado;
+    public String getMedioPago() {
+        return medioPago;
     }
 
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
+    public void setMedioPago(String medioPago) {
+        this.medioPago = medioPago;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public Integer getIdCompra() {
+        return idCompra;
+    }
+
+    public void setIdCompra(Integer idCompra) {
+        this.idCompra = idCompra;
     }
 }
 
