@@ -10,7 +10,12 @@ import java.util.Optional;
 @Service
 public class ProductService {
 
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+
+    // Inyección de dependencias por constructor
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public List<Product> getAll() {
         return productRepository.getAll();
@@ -29,13 +34,9 @@ public class ProductService {
     }
 
     public boolean delete(int productId) {
-        //Verificar si existe el producto
-        if(getProduct(productId).isPresent()) {
+        return getProduct(productId).map(product -> {
             productRepository.delete(productId);
             return true;
-        }  else {
-            return false;
-        }
+        }).orElse(false);
     }
-
 }
