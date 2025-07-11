@@ -1,18 +1,17 @@
 package com.tecdesoftware.market.domain;
 
-public class purchaseItem {
-
-    private int productId;
+public class PurchaseItem {
+    private int productid;
     private int quantity;
     private double total;
     private boolean active;
 
-    public int getProductId() {
-        return productId;
+    public int getProductid() {
+        return productid;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProductid(int productid) {
+        this.productid = productid;
     }
 
     public int getQuantity() {

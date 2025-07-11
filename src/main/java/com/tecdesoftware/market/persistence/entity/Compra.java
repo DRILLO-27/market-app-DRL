@@ -31,40 +31,15 @@ public class Compra {
     @JoinColumn (name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "compra")
-    private List<CompraProducto> compraProductos;
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
+    private List<CompraProducto> productos;
 
-
-    public Boolean getEstado() {
-        return estado;
+    public Integer getIdCompra() {
+        return idCompra;
     }
 
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-    public String getMedioPago() {
-        return medioPago;
-    }
-
-    public void setMedioPago(String medioPago) {
-        this.medioPago = medioPago;
-    }
-
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
+    public void setIdCompra(Integer idCompra) {
+        this.idCompra = idCompra;
     }
 
     public Integer getIdCliente() {
@@ -75,12 +50,52 @@ public class Compra {
         this.idCliente = idCliente;
     }
 
-    public Integer getIdCompra() {
-        return idCompra;
+    public LocalDateTime getFecha() {
+        return fecha;
     }
 
-    public void setIdCompra(Integer idCompra) {
-        this.idCompra = idCompra;
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getMedioPago() {
+        return medioPago;
+    }
+
+    public void setMedioPago(String medioPago) {
+        this.medioPago = medioPago;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<CompraProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
     }
 }
 
