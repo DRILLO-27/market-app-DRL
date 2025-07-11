@@ -14,7 +14,7 @@ public interface PurchaseMapper {
     //Mapeo de las compras
     @Mappings({
             @Mapping(source = "idCompra", target = "purchaseId"),
-            @Mapping(source = "idCliente", target = "clientId"),
+            @Mapping(source = "idCliente", target = "clienteId"),
             @Mapping(source = "fecha", target = "date"),
             @Mapping(source = "medioPago", target = "paymentMethod"),
             @Mapping(source = "comentario", target = "comment"),
@@ -28,6 +28,7 @@ public interface PurchaseMapper {
     //lista de compras
     List<Purchase> toPurchases(List<Compra> compras);
     @InheritInverseConfiguration
+    @Mapping(target = "cliente", ignore = true)
     Compra toCompra(Purchase purchase);
 
 }
